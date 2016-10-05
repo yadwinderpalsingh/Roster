@@ -11,20 +11,20 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="60px"
+        android:layout_height="40px"
         android:text="Name"
-        android:id="@+id/textView"
-        android:textSize="40px"
+        android:id="@+id/userNameLabel"
+        android:textSize="30px"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="400px"
         android:layout_height="80px"
-        android:id="@+id/editText"
-        android:layout_alignTop="@+id/textView"
+        android:id="@+id/userName"
+        android:layout_alignTop="@+id/userNameLabel"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/radioButton" />
+        android:layout_alignStart="@+id/shirtSizeGroup" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -32,48 +32,48 @@
         android:text="Thinks We Are Going Steady"
         android:id="@+id/checkBox"
         android:checked="false"
-        android:layout_below="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_below="@+id/userName"
+        android:layout_alignEnd="@+id/userName"
+        android:layout_alignStart="@+id/userName" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="60px"
         android:text="Eye Color"
-        android:id="@+id/textView2"
+        android:id="@+id/eyeColorLabel"
+        android:textSize="30px"
         android:layout_below="@+id/checkBox"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20px"
-        android:textSize="40px" />
+        android:layout_marginTop="20px"/>
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_alignStart="@+id/editText"
+        android:id="@+id/eyeColor"
+        android:layout_alignTop="@+id/eyeColorLabel"
+        android:layout_alignStart="@+id/userName"
         android:spinnerMode="dropdown"
         android:layout_alignEnd="@+id/checkBox"
-        android:layout_alignBottom="@+id/textView2" />
+        android:layout_alignBottom="@+id/eyeColorLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="80px"
-        android:text="Date of Birth"
-        android:id="@+id/textView3"
-        android:textSize="40px"
-        android:layout_below="@+id/textView2"
+        android:text="Birth Date"
+        android:id="@+id/dateOfBirthLabel"
+        android:textSize="30px"
+        android:layout_below="@+id/eyeColorLabel"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20px" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="75px"
-        android:id="@+id/dateofbirth"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignStart="@+id/spinner"
-        android:layout_alignEnd="@+id/spinner"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_height="55px"
+        android:id="@+id/dateofBirth"
+        android:layout_alignTop="@+id/dateOfBirthLabel"
+        android:layout_alignStart="@+id/eyeColor"
+        android:layout_alignEnd="@+id/eyeColor"
+        android:layout_alignBottom="@+id/dateOfBirthLabel"
         android:focusable="false"
         android:onClick="getDateofBirth" />
 
@@ -81,135 +81,194 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Shirt"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/shirtRadioLabel"
+        android:layout_below="@+id/dateOfBirthLabel"
         android:layout_alignParentStart="true"
-        android:textSize="40px"
+        android:textSize="30px"
         android:layout_marginTop="20px" />
 
-    <RadioButton
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
+        android:id="@+id/shirtSizeGroup"
         android:layout_height="wrap_content"
-        android:text="XS"
-        android:id="@+id/radioButton"
-        android:layout_alignTop="@+id/textView4"
-        android:layout_toEndOf="@+id/textView3"
+        android:layout_alignTop="@+id/shirtRadioLabel"
+        android:layout_toEndOf="@+id/shoeSizeLabel"
         android:layout_marginLeft="30px"
-        android:checked="false" />
+        android:orientation="horizontal">
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="S"
-        android:id="@+id/radioButton2"
-        android:checked="false"
-        android:layout_marginStart="25dp"
-        android:layout_above="@+id/radioButton5"
-        android:layout_toEndOf="@+id/radioButton" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XS"
+            android:id="@+id/xSmall"
+            android:layout_alignTop="@+id/shirtRadioLabel"
+            android:layout_toEndOf="@+id/dateOfBirthLabel"
+            android:checked="false"
+            android:textSize="22px"
+            android:onClick="shirtSizeChanged"/>
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="M"
-        android:id="@+id/radioButton3"
-        android:checked="false"
-        android:layout_above="@+id/radioButton5"
-        android:layout_alignStart="@+id/radioButton6" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S"
+            android:id="@+id/small"
+            android:checked="false"
+            android:layout_alignTop="@+id/shirtRadioLabel"
+            android:layout_toEndOf="@+id/dateOfBirthLabel"
+            android:textSize="22px"
+            android:onClick="shirtSizeChanged"/>
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="L"
-        android:id="@+id/radioButton4"
-        android:checked="false"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignStart="@+id/radioButton" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M"
+            android:id="@+id/medium"
+            android:checked="true"
+            android:layout_above="@+id/xLarge"
+            android:layout_alignStart="@+id/xXLarge"
+            android:textSize="22px"
+            android:onClick="shirtSizeChanged"/>
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XL"
-        android:id="@+id/radioButton5"
-        android:layout_alignBottom="@+id/radioButton4"
-        android:layout_alignStart="@+id/radioButton2"
-        android:checked="false" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="L"
+            android:id="@+id/large"
+            android:checked="false"
+            android:layout_below="@+id/xSmall"
+            android:layout_alignStart="@+id/xSmall"
+            android:textSize="22px"
+            android:onClick="shirtSizeChanged"/>
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XXL"
-        android:id="@+id/radioButton6"
-        android:checked="false"
-        android:layout_below="@+id/radioButton3"
-        android:layout_alignEnd="@+id/dateofbirth"
-        android:layout_marginRight="10px" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XL"
+            android:id="@+id/xLarge"
+            android:layout_alignBottom="@+id/large"
+            android:layout_alignStart="@+id/small"
+            android:checked="false"
+            android:textSize="22px"
+            android:onClick="shirtSizeChanged"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXL"
+            android:id="@+id/xXLarge"
+            android:checked="false"
+            android:layout_below="@+id/medium"
+            android:layout_alignEnd="@+id/dateofBirth"
+            android:layout_marginRight="10px"
+            android:textSize="22px"
+            android:onClick="shirtSizeChanged"/>
+
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="60px"
         android:text="Pant Size"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/radioButton4"
+        android:id="@+id/pantSizeLabel"
+        android:layout_below="@+id/shirtSizeGroup"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20px"
-        android:textSize="40px"
-        android:editable="true" />
+        android:textSize="30px"/>
 
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_alignStart="@+id/radioButton4"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/pantSize"
+        android:layout_alignTop="@+id/pantSizeLabel"
+        android:layout_alignBottom="@+id/pantSizeLabel"
+        android:layout_alignStart="@+id/shirtSizeGroup"
+        android:layout_marginEnd="45px"
+        android:layout_alignParentEnd="true"
+        android:max="16" />
+
+    <TextView
+        android:layout_width="40px"
+        android:layout_height="60px"
+        android:text="0"
+        android:id="@+id/pantSizeValue"
+        android:textSize="30px"
+        android:layout_alignTop="@+id/pantSize"
+        android:layout_alignEnd="@+id/shirtSizeGroup"
+        android:layout_marginTop="12px"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="60px"
         android:text="Shirt Size"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView5"
+        android:id="@+id/shirtSizeLabel"
+        android:layout_below="@+id/pantSizeLabel"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20px"
-        android:textSize="40px" />
+        android:textSize="30px" />
 
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar2"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignStart="@+id/radioButton4"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/shirtSize"
+        android:layout_alignTop="@+id/shirtSizeLabel"
+        android:layout_alignStart="@+id/shirtSizeGroup"
+        android:layout_alignBottom="@+id/shirtSizeLabel"
+        android:layout_marginEnd="45px"
+        android:layout_alignParentEnd="true"
+        android:max="16" />
+
+    <TextView
+        android:layout_width="40px"
+        android:layout_height="60px"
+        android:text="0"
+        android:id="@+id/shirtSizeValue"
+        android:textSize="30px"
+        android:layout_alignTop="@+id/shirtSize"
+        android:layout_alignEnd="@+id/shirtSizeGroup"
+        android:layout_marginTop="12px"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="60px"
         android:text="Shoe Size"
-        android:id="@+id/textView7"
-        android:layout_below="@+id/textView6"
+        android:id="@+id/shoeSizeLabel"
+        android:layout_below="@+id/shirtSizeLabel"
         android:layout_alignParentStart="true"
-        android:textSize="40px"
+        android:textSize="30px"
         android:layout_marginTop="20px" />
 
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar3"
-        android:layout_alignTop="@+id/textView7"
-        android:layout_alignStart="@+id/seekBar2"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/shoeSize"
+        android:max="8"
+        android:layout_alignTop="@+id/shoeSizeLabel"
+        android:layout_alignStart="@+id/shirtSize"
+        android:layout_toStartOf="@+id/shoeSizeValue"
+        android:layout_marginTop="10px"/>
+
+    <TextView
+        android:layout_width="40px"
+        android:layout_height="60px"
+        android:text="0"
+        android:id="@+id/shoeSizeValue"
+        android:textSize="30px"
+        android:layout_alignTop="@+id/shoeSize"
+        android:layout_alignEnd="@+id/shirtSizeGroup"
+        android:layout_marginTop="0px"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/submitorder"
-        android:layout_below="@+id/seekBar3"
-        android:layout_alignEnd="@+id/seekBar3"
+        android:layout_below="@+id/shoeSize"
         android:layout_marginTop="27dp"
-        android:layout_toEndOf="@+id/radioButton2" />
+        android:layout_alignStart="@+id/shirtSizeGroup"
+        android:layout_alignEnd="@+id/shoeSizeValue"
+        android:onClick="savePreferences" />
+
+
+
 
 </RelativeLayout>
